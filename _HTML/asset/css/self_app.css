@@ -1,6 +1,34 @@
-.x1 {
-    display: flex;
-    justify-content: space-between;
-    justify-items: center;
-    align-items: center;
+a {
+    text-decoration: none;
+}
+.nav-bg-color {
+    background-color: #0369A1;
+}
+
+.navbar-brand {
+    color: #FFF;
+}
+
+.navbar-nav li a {
+    color: #FFFFFF;
+}
+
+.bg-gmap {
+    background-color: #F0F1F7;
+}
+
+.our-team {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+.gallery-w{
+    width: 400px;
+    height: 330px;
+    margin-bottom: 1.5rem;
+    border-radius: 15px;
+}
+
+.container-fluid a:hover{
+    color: #CCC !important;
 }
