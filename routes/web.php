@@ -6,13 +6,9 @@ use App\Http\Controllers\HomeController;
 
 // Backend Developer.
 use App\Http\Controllers\BannerController;
-use App\Http\Controllers\PageGroupController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\TeamController;
-use App\Http\Controllers\VideoController;
-use App\Http\Controllers\RequestInquiryController;
 use App\Http\Controllers\FaqController;
-use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\NoticeWallController;
 
 /*
@@ -52,9 +48,6 @@ Route::get('/apply-now', [HomeController::class, 'applyNow'])->name('app.apply_n
 Route::get('/faq', [HomeController::class, 'faq'])->name('app.faq');
 Route::post('/apply-send', [RequestInquiryController::class, 'store'])->name('app.apply_send');
 Route::get('/blog/detail/{slug}', [HomeController::class, 'blogDetail'])->name('app.blog_slug');
-
-Route::get('/visitor-feedbacks', [HomeController::class, 'visitorFeedback'])->name('app.visitor_feedback');
-Route::post('/send-feedbacks', [HomeController::class, 'sendFeedback'])->name('app.send_feedback');
 /* Close: Frontend Developers Code */
 
 Route::middleware('auth')->group(function () {
@@ -66,16 +59,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/banner/store', [BannerController::class, 'store'])->name('banner.store');
     Route::post('/banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
     Route::get('/banner/destroy/{id}', [BannerController::class, 'destroy'])->name('banner.destroy');
-
-    Route::get('/page-group/list', [PageGroupController::class, 'index'])->name('page_group.list');
-    Route::get('/page-group/create', [PageGroupController::class, 'create'])->name('page_group.create');
-    Route::get('/page-group/show/{id}', [PageGroupController::class, 'show'])->name('page_group.show');
-    Route::post('/page-group/store', [PageGroupController::class, 'store'])->name('page_group.store');
-    Route::get('/page-group/edit/{id}', [PageGroupController::class, 'edit'])->name('page_group.edit');
-    Route::post('/page-group/update/{id}', [PageGroupController::class, 'update'])->name('page_group.update');
-    Route::get('/page-group/destroy/{id}', [PageGroupController::class, 'destroy'])->name('page_group.destroy');
-    Route::get('/page-group/single-detail/{slug}', [PageGroupController::class, 'singleDetail'])->name('page_group.slug');
-    Route::post('/page-group/single-update', [PageGroupController::class, 'singleDetailUpdate'])->name('page_group.single_update');
 
 // Testimonial Route Block.
     Route::get('/client/list', [ClientController::class, 'index'])->name('client.list');
@@ -103,21 +86,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
     Route::post('/team/update/{id}', [TeamController::class, 'update'])->name('team.update');
     Route::get('/team/destroy/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
-
-// Video Share Route.
-    Route::get('/video/list', [VideoController::class, 'index'])->name('video.list');
-    Route::get('/video/create', [VideoController::class, 'create'])->name('video.create');
-    Route::get('/video/show/{id}', [VideoController::class, 'show'])->name('video.show');
-    Route::post('/video/store', [VideoController::class, 'store'])->name('video.store');
-    Route::get('/video/edit/{id}', [VideoController::class, 'edit'])->name('video.edit');
-    Route::post('/video/update/{id}', [VideoController::class, 'update'])->name('video.update');
-    Route::get('/video/destroy/{id}', [VideoController::class, 'destroy'])->name('video.destroy');
-
-    Route::get('/request-inquiry/list', [RequestInquiryController::class, 'index'])->name('request_inquiry.list');
-    Route::get('/request-inquiry/show/{id}', [RequestInquiryController::class, 'show'])->name('request_inquiry.show');
-
-    Route::get('/feedbacks/list', [FeedbackController::class, 'index'])->name('feedback.list');
-    Route::get('/feedbacks/show/{id}', [FeedbackController::class, 'show'])->name('feedback.show');
 
     Route::get('/faq/list', [FaqController::class, 'index'])->name('faq.list');
     Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.create');

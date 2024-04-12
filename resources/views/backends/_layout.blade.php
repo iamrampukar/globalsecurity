@@ -31,27 +31,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">Home</a>
                     </li>
-                    {{--<li class="nav-item">
-                        <a class="nav-link" href="{{ route('banner.list') }}">Banner</a>
-                    </li>--}}
-                    {{--<li class="nav-item">
-                        <a class="nav-link" href="{{ route('page_group.list') }}">Page Group</a>
-                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('client.list') }}">Client</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('team.list') }}">Teams</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('request_inquiry.list') }}">Request Inquiry</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('feedback.list') }}">Feedback</a>
-                    </li>
-                    {{--<li class="nav-item">
-                        <a class="nav-link" href="{{ route('video.list') }}">Videos</a>
-                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('faq.list') }}">FAQ</a>
                     </li>
