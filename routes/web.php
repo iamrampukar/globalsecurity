@@ -10,6 +10,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NoticeWallController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('client.edit');
     Route::post('/client/update/{id}', [ClientController::class, 'update'])->name('client.update');
     Route::get('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('client.destroy');
+
+    Route::get('/testimonial/list', [TestimonialController::class, 'index'])->name('testimonial.list');
+    Route::get('/testimonial/create', [TestimonialController::class, 'create'])->name('testimonial.create');
+    Route::get('/testimonial/show/{id}', [TestimonialController::class, 'show'])->name('testimonial.show');
+    Route::post('/testimonial/store', [TestimonialController::class, 'store'])->name('testimonial.store');
+    Route::get('/testimonial/edit/{id}', [TestimonialController::class, 'edit'])->name('testimonial.edit');
+    Route::post('/testimonial/update/{id}', [TestimonialController::class, 'update'])->name('testimonial.update');
+    Route::get('/testimonial/destroy/{id}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
 
     // Notice Wall Route Block.
     Route::get('/notice-wall/list', [NoticeWallController::class, 'index'])->name('notice_wall.list');

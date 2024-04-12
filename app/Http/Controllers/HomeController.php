@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactRequest;
 use App\Models\Banner;
 use App\Models\Contact;
+use App\Models\Client;
 use App\Models\Faq;
 use App\Models\Team;
 use App\Models\NoticeWall;
@@ -23,12 +24,10 @@ class HomeController extends Controller
     {
         $model = [];
         $model['banner'] = Banner::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(5)->get();
-        $model['page_group'] = PageGroup::where(['delete_flag' => 0, 'visible_status' => 1, 'page_type' => 'study_abroad'])->orderBy('id', 'DESC')->limit(6)->get();
         $model['teams'] = Team::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
-        $model['testimonial'] = Testimonial::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(3)->get();
-        $model['video'] = Video::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(2)->get();
-        $model['blog'] = Faq::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
+        $model['client'] = Client::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         $model['notice_wall'] = NoticeWall::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->first();
+        $model['faq'] = Faq::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         return $model;
     }
 
@@ -39,7 +38,8 @@ class HomeController extends Controller
 
     public function ourTeam(Request $request)
     {
-        return view('homes.our_team');
+        $model = $this->_load();
+        return view('homes.our_team', compact('model'));
     }
 
     public function gallery(Request $request)
@@ -59,7 +59,8 @@ class HomeController extends Controller
 
     public function outClient(Request $request)
     {
-        return view('homes.our_client');
+        $model = $this->_load();
+        return view('homes.our_client', compact('model'));
     }
 
     public function contactUs(Request $request)

@@ -29,7 +29,7 @@
     <div class="container">
         <nav class="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('app.home') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" style="width: 60px"
                          class="d-inline-block align-items-center">Global
                     Security Service

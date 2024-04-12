@@ -5,41 +5,47 @@
             <h2 class="text-center">Our Clients</h2>
             <div class="row mt-3 ">
                 <div class="our-client-wrap">
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/brihat.jpeg') }}" class=" card-img-top client-img"
-                             alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/catalyst.jpeg') }}" class=" card-img-top client-img"
-                             alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/client1.jpeg') }}" class=" card-img-top client-img"
-                             alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/hankook.jpeg') }}" class=" card-img-top client-img"
-                             alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/nimb.webp') }}" class="card-img-top client-img" alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/saurya.jpeg') }}" class="card-img-top client-img"
-                             alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/taxes.jpeg') }}" class=" card-img-top client-img"
-                             alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/unionlife.png') }}" class="card-img-top client-img"
-                             alt="...">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="{{ asset('images/our-client/valley.png') }}" class="card-img-top client-img"
-                             alt="...">
-                    </div>
+                    @if(!empty($model['client']))
+                        @foreach($model['client'] as $el )
+                            <div class="col-md-1">
+                                <img src="{{ $el->getFirstMedia('client_image')->getUrl('thumb') }}" class=" card-img-top client-img"
+                                     alt="...">
+                            </div>
+                        @endforeach
+                    @endif
+                    {{--
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/catalyst.jpeg') }}" class=" card-img-top client-img"
+                                 alt="...">
+                        </div>
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/client1.jpeg') }}" class=" card-img-top client-img"
+                                 alt="...">
+                        </div>
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/hankook.jpeg') }}" class=" card-img-top client-img"
+                                 alt="...">
+                        </div>
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/nimb.webp') }}" class="card-img-top client-img" alt="...">
+                        </div>
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/saurya.jpeg') }}" class="card-img-top client-img"
+                                 alt="...">
+                        </div>
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/taxes.jpeg') }}" class=" card-img-top client-img"
+                                 alt="...">
+                        </div>
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/unionlife.png') }}" class="card-img-top client-img"
+                                 alt="...">
+                        </div>
+                        <div class="col-md-1">
+                            <img src="{{ asset('images/our-client/valley.png') }}" class="card-img-top client-img"
+                                 alt="...">
+                        </div>
+                    --}}
                 </div>
             </div>
         </div>
