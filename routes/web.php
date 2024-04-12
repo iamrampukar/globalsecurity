@@ -7,8 +7,8 @@ use App\Http\Controllers\HomeController;
 // Backend Developer.
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PageGroupController;
-use App\Http\Controllers\TestimonialController;
-use App\Http\Controllers\SuccessStoryController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\RequestInquiryController;
 use App\Http\Controllers\BlogController;
@@ -47,7 +47,7 @@ Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('app.conta
 Route::get('/country', [HomeController::class, 'country'])->name('app.country');
 Route::get('/services', [HomeController::class, 'services'])->name('app.services');
 Route::get('/blog', [HomeController::class, 'blog'])->name('app.blog');
-Route::get('/success-story', [HomeController::class, 'successStory'])->name('app.success_story');
+Route::get('/success-story', [HomeController::class, 'successStory'])->name('app.teams');
 Route::get('/apply-now', [HomeController::class, 'applyNow'])->name('app.apply_now');
 Route::get('/faq', [HomeController::class, 'faq'])->name('app.faq');
 Route::post('/apply-send', [RequestInquiryController::class, 'store'])->name('app.apply_send');
@@ -78,13 +78,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/page-group/single-update', [PageGroupController::class, 'singleDetailUpdate'])->name('page_group.single_update');
 
 // Testimonial Route Block.
-    Route::get('/testimonial/list', [TestimonialController::class, 'index'])->name('testimonial.list');
-    Route::get('/testimonial/create', [TestimonialController::class, 'create'])->name('testimonial.create');
-    Route::get('/testimonial/show/{id}', [TestimonialController::class, 'show'])->name('testimonial.show');
-    Route::post('/testimonial/store', [TestimonialController::class, 'store'])->name('testimonial.store');
-    Route::get('/testimonial/edit/{id}', [TestimonialController::class, 'edit'])->name('testimonial.edit');
-    Route::post('/testimonial/update/{id}', [TestimonialController::class, 'update'])->name('testimonial.update');
-    Route::get('/testimonial/destroy/{id}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
+    Route::get('/client/list', [ClientController::class, 'index'])->name('client.list');
+    Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
+    Route::get('/client/show/{id}', [ClientController::class, 'show'])->name('client.show');
+    Route::post('/client/store', [ClientController::class, 'store'])->name('client.store');
+    Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('client.edit');
+    Route::post('/client/update/{id}', [ClientController::class, 'update'])->name('client.update');
+    Route::get('/client/destroy/{id}', [ClientController::class, 'destroy'])->name('client.destroy');
 
     // Notice Wall Route Block.
     Route::get('/notice-wall/list', [NoticeWallController::class, 'index'])->name('notice_wall.list');
@@ -96,13 +96,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/notice-wall/destroy/{id}', [NoticeWallController::class, 'destroy'])->name('notice_wall.destroy');
 
 // Success Story Route Block.
-    Route::get('/success-story/list', [SuccessStoryController::class, 'index'])->name('success_story.list');
-    Route::get('/success-story/create', [SuccessStoryController::class, 'create'])->name('success_story.create');
-    Route::get('/success-story/show/{id}', [SuccessStoryController::class, 'show'])->name('success_story.show');
-    Route::post('/success-story/store', [SuccessStoryController::class, 'store'])->name('success_story.store');
-    Route::get('/success-story/edit/{id}', [SuccessStoryController::class, 'edit'])->name('success_story.edit');
-    Route::post('/success-story/update/{id}', [SuccessStoryController::class, 'update'])->name('success_story.update');
-    Route::get('/success-story/destroy/{id}', [SuccessStoryController::class, 'destroy'])->name('success_story.destroy');
+    Route::get('/team/list', [TeamController::class, 'index'])->name('team.list');
+    Route::get('/team/create', [TeamController::class, 'create'])->name('team.create');
+    Route::get('/team/show/{id}', [TeamController::class, 'show'])->name('team.show');
+    Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
+    Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
+    Route::post('/team/update/{id}', [TeamController::class, 'update'])->name('team.update');
+    Route::get('/team/destroy/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
 
 // Video Share Route.
     Route::get('/video/list', [VideoController::class, 'index'])->name('video.list');

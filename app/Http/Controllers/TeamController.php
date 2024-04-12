@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Testimonial;
-use App\Http\Requests\StoreTestimonialRequest;
-use App\Http\Requests\UpdateTestimonialRequest;
+use App\Models\Team;
+use App\Http\Requests\StoreTeamRequest;
+use App\Http\Requests\UpdateTeamRequest;
 use Illuminate\Support\Facades\DB;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class TestimonialController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $model = Testimonial::where(['delete_flag' => 0])->orderBy('id', 'DESC')->get();
-        return view('backends.testimonials.list', compact('model'));
+        $model = Team::where(['delete_flag' => 0])->orderBy('id', 'DESC')->get();
+        return view('backends.teams.list', compact('model'));
     }
 
     /**
@@ -24,24 +23,26 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('backends.testimonials.create');
+        return view('backends.teams.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTestimonialRequest $request)
+    public function store(StoreTeamRequest $request)
     {
         $formData = $request->validated();
         DB::beginTransaction();
         try {
+
             $this->_storeUpdate($request, $formData);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return redirect()->back()->with('error', 'Something error data');
         }
-        return redirect()->route('testimonial.list')->with('success', 'Save data successfully');
+        return redirect()->route('team.list')->with('success', 'Save data successfully');
     }
 
     /**
@@ -49,8 +50,8 @@ class TestimonialController extends Controller
      */
     public function show($id)
     {
-        $model = Testimonial::where(['delete_flag' => 0])->find($id);
-         return view('backends.testimonials.show', compact('model'));
+        $model = Team::where(['delete_flag' => 0])->find($id);
+        return view('backends.teams.show', compact('model'));
     }
 
     /**
@@ -58,14 +59,14 @@ class TestimonialController extends Controller
      */
     public function edit($id)
     {
-        $model = Testimonial::where(['delete_flag' => 0])->find($id);
-        return view('backends.testimonials.edit', compact('model'));
+        $model = Team::where(['delete_flag' => 0])->find($id);
+        return view('backends.teams.edit', compact('model'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTestimonialRequest $request, $id)
+    public function update(UpdateTeamRequest $request, $id)
     {
         $formData = $request->validated();
         DB::beginTransaction();
@@ -76,15 +77,15 @@ class TestimonialController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', 'Save failed success.');
         }
-        return redirect()->route('testimonial.list')->with('success', 'Save data successfully');
+        return redirect()->route('team.list')->with('success', 'Save data successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy(Team $successStory)
     {
-
+        //
     }
 
     private function _storeUpdate($request, $formData = [], $id = null): bool
@@ -92,17 +93,17 @@ class TestimonialController extends Controller
         $model = NULL;
         $status = false;
         if (!empty($id)) {
-            $model = Testimonial::where(['delete_flag' => 0])->find($id);
+            $model = Team::where(['delete_flag' => 0])->find($id);
             $model->fill($formData)->save();
             $status = true;
         } else {
-            $model = Testimonial::create($formData);
+            $model = Team::create($formData);
             $status = true;
         }
         if ($request->hasFile('image_name')) {
-            $model->clearMediaCollection('testimonial_image');
+            $model->clearMediaCollection('team');
             $model->addMedia($request->file('image_name'))
-                ->toMediaCollection('testimonial_image');
+                ->toMediaCollection('team');
         }
         return $status;
     }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\PageGroup;
-use App\Models\SuccessStory;
+use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\Feedback;
 use App\Models\Video;
@@ -28,7 +28,7 @@ class HomeController extends Controller
         $model = [];
         $model['banner'] = Banner::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(5)->get();
         $model['page_group'] = PageGroup::where(['delete_flag' => 0, 'visible_status' => 1, 'page_type' => 'study_abroad'])->orderBy('id', 'DESC')->limit(6)->get();
-        $model['success_story'] = SuccessStory::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
+        $model['teams'] = Team::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         $model['testimonial'] = Testimonial::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(3)->get();
         $model['video'] = Video::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(2)->get();
         $model['blog'] = Blog::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
@@ -88,7 +88,7 @@ class HomeController extends Controller
     public function successStory(Request $request)
     {
         $model = $this->_load();
-        return view('homes.success_story', compact('model'));
+        return view('homes.teams', compact('model'));
     }
 
     public function visitorFeedback(Request $request)

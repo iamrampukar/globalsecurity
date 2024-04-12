@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SuccessStory;
-use App\Http\Requests\StoreSuccessStoryRequest;
-use App\Http\Requests\UpdateSuccessStoryRequest;
+use App\Models\Client;
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class SuccessStoryController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $model = SuccessStory::where(['delete_flag' => 0])->orderBy('id', 'DESC')->get();
-        return view('backends.success_story.list', compact('model'));
+        $model = Client::where(['delete_flag' => 0])->orderBy('id', 'DESC')->get();
+        return view('backends.clients.list', compact('model'));
     }
 
     /**
@@ -23,26 +24,24 @@ class SuccessStoryController extends Controller
      */
     public function create()
     {
-        return view('backends.success_story.create');
+        return view('backends.clients.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSuccessStoryRequest $request)
+    public function store(StoreClientRequest $request)
     {
         $formData = $request->validated();
         DB::beginTransaction();
         try {
-
             $this->_storeUpdate($request, $formData);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            dd($e->getMessage());
             return redirect()->back()->with('error', 'Something error data');
         }
-        return redirect()->route('success_story.list')->with('success', 'Save data successfully');
+        return redirect()->route('client.list')->with('success', 'Save data successfully');
     }
 
     /**
@@ -50,8 +49,8 @@ class SuccessStoryController extends Controller
      */
     public function show($id)
     {
-        $model = SuccessStory::where(['delete_flag' => 0])->find($id);
-        return view('backends.success_story.show', compact('model'));
+        $model = Client::where(['delete_flag' => 0])->find($id);
+         return view('backends.clients.show', compact('model'));
     }
 
     /**
@@ -59,14 +58,14 @@ class SuccessStoryController extends Controller
      */
     public function edit($id)
     {
-        $model = SuccessStory::where(['delete_flag' => 0])->find($id);
-        return view('backends.success_story.edit', compact('model'));
+        $model = Client::where(['delete_flag' => 0])->find($id);
+        return view('backends.clients.edit', compact('model'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSuccessStoryRequest $request, $id)
+    public function update(UpdateClientRequest $request, $id)
     {
         $formData = $request->validated();
         DB::beginTransaction();
@@ -77,15 +76,15 @@ class SuccessStoryController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', 'Save failed success.');
         }
-        return redirect()->route('success_story.list')->with('success', 'Save data successfully');
+        return redirect()->route('client.list')->with('success', 'Save data successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SuccessStory $successStory)
+    public function destroy(Client $client)
     {
-        //
+
     }
 
     private function _storeUpdate($request, $formData = [], $id = null): bool
@@ -93,17 +92,17 @@ class SuccessStoryController extends Controller
         $model = NULL;
         $status = false;
         if (!empty($id)) {
-            $model = SuccessStory::where(['delete_flag' => 0])->find($id);
+            $model = Client::where(['delete_flag' => 0])->find($id);
             $model->fill($formData)->save();
             $status = true;
         } else {
-            $model = SuccessStory::create($formData);
+            $model = Client::create($formData);
             $status = true;
         }
         if ($request->hasFile('image_name')) {
-            $model->clearMediaCollection('success_story');
+            $model->clearMediaCollection('client_image');
             $model->addMedia($request->file('image_name'))
-                ->toMediaCollection('success_story');
+                ->toMediaCollection('client_image');
         }
         return $status;
     }

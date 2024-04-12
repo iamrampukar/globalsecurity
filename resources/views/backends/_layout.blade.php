@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GoodVibes</title>
+    <title>Global Security</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
@@ -38,10 +38,10 @@
                         <a class="nav-link" href="{{ route('page_group.list') }}">Page Group</a>
                     </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('testimonial.list') }}">Testimonial</a>
+                        <a class="nav-link" href="{{ route('client.list') }}">Client</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('success_story.list') }}">Success Story</a>
+                        <a class="nav-link" href="{{ route('team.list') }}">Teams</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('request_inquiry.list') }}">Request Inquiry</a>

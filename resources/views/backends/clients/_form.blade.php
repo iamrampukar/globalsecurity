@@ -9,6 +9,24 @@
 </div>
 
 <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" class="form-control" id="email" name="email" placeholder="Email..."
+           value="{{ old('email',@$model->email) }}">
+    @error('email')
+    <div class="invalid">{{ $message }}</div>
+    @enderror
+</div>
+
+<div class="mb-3">
+    <label for="contact" class="form-label">Contact</label>
+    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact..."
+           value="{{ old('contact',@$model->contact) }}">
+    @error('contact')
+    <div class="invalid">{{ $message }}</div>
+    @enderror
+</div>
+
+<div class="mb-3">
     <label for="message" class="form-label">Message</label>
     <textarea class="form-control" id="message" name="message" rows="3"
               placeholder="Message...">{{ old('message',@$model->message) }}</textarea>

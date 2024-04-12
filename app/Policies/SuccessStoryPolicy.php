@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\SuccessStory;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -19,7 +19,7 @@ class SuccessStoryPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, SuccessStory $successStory): bool
+    public function view(User $user, Team $successStory): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class SuccessStoryPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, SuccessStory $successStory): bool
+    public function update(User $user, Team $successStory): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class SuccessStoryPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, SuccessStory $successStory): bool
+    public function delete(User $user, Team $successStory): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class SuccessStoryPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, SuccessStory $successStory): bool
+    public function restore(User $user, Team $successStory): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class SuccessStoryPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, SuccessStory $successStory): bool
+    public function forceDelete(User $user, Team $successStory): bool
     {
         //
     }

@@ -8,7 +8,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Testimonial extends Model implements HasMedia
+class Team extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
@@ -16,14 +16,14 @@ class Testimonial extends Model implements HasMedia
 
     public function registerMediaColections()
     {
-        $this->addMediaCollection('testimonial_image')->singleFile();
+        $this->addMediaCollection('team')->singleFile();
     }
 
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb-sm')->width(60);
-        $this->addMediaConversion('thumb')->width(300)->height(300);
-        $this->addMediaConversion('actual')->width(500)->height(500);
+        $this->addMediaConversion('thumb')->width(265)->height(400);
+        $this->addMediaConversion('actual')->width(200)->height(302);
     }
 
     public function getStatusAttribute()

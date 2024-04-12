@@ -20,7 +20,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('app.country') }}">Country</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('app.services') }}">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('app.blog') }}">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('app.success_story') }}">Successful Story</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('app.teams') }}">Successful Story</a></li>
                     </ul>
                 </div>
                 <div class="d-flex"><a href="{{ route('app.apply_now') }}" class="btn btn-primary">Apply Now</a></div>

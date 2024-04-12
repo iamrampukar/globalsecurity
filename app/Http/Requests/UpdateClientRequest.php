@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTestimonialRequest extends FormRequest
+class UpdateClientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,8 @@ class UpdateTestimonialRequest extends FormRequest
     {
         return [
             'full_name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
             'message' => 'required',
             'visible_status' => ['nullable'],
             'image_name' => ['nullable'],

@@ -9,37 +9,37 @@
 </div>
 
 <div class="mb-3">
-    <label for="course" class="form-label">Course</label>
-    <input type="text" class="form-control" id="course" name="course" placeholder="Course"
-           value="{{ old('course',@$model->course) }}">
-    @error('course')
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email..."
+           value="{{ old('email',@$model->email) }}">
+    @error('email')
     <div class="invalid">{{ $message }}</div>
     @enderror
 </div>
 
 <div class="mb-3">
-    <label for="university" class="form-label">University</label>
-    <input type="text" class="form-control" id="university" name="university" placeholder="University"
-           value="{{ old('university',@$model->university) }}">
-    @error('university')
+    <label for="contact" class="form-label">Contact</label>
+    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact..."
+           value="{{ old('contact',@$model->contact) }}">
+    @error('contact')
     <div class="invalid">{{ $message }}</div>
     @enderror
 </div>
 
 <div class="mb-3">
-    <label for="location" class="form-label">Location</label>
-    <input type="text" class="form-control" id="location" name="location" placeholder="Location"
-           value="{{ old('location',@$model->location) }}">
-    @error('location')
+    <label for="quote" class="form-label">Quote</label>
+    <textarea class="form-control" id="quote" name="quote" rows="3"
+              placeholder="Message...">{{ old('quote',@$model->quote) }}</textarea>
+    @error('quote')
     <div class="invalid">{{ $message }}</div>
     @enderror
 </div>
 
 <div class="mb-3">
-    <label for="year" class="form-label">Year</label>
-    <input type="date" class="form-control" id="year" name="year" placeholder="University"
-           value="{{ old('year',@$model->year) }}">
-    @error('year')
+    <label for="message" class="form-label">Message</label>
+    <textarea class="form-control" id="message" name="message" rows="3"
+              placeholder="Message...">{{ old('message',@$model->message) }}</textarea>
+    @error('message')
     <div class="invalid">{{ $message }}</div>
     @enderror
 </div>
