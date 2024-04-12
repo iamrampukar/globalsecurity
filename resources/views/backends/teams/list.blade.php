@@ -31,8 +31,8 @@
                     <td>{{$el->contact}}</td>
                     <td>{{$el->quote}}</td>
                     <td>{{$el->message}}</td>
-                    <td><img src="{{ $el->getFirstMedia('team')->getUrl('thumb-sm') }}" alt="" width="50px"></td>
-                    <td><a href="{{ $el->getFirstMedia('team')->getUrl() }}" target="_blank"><i
+                    <td><img src="{{ $el->getFirstMedia('team_image')->getUrl('thumb-sm') }}" alt="" width="50px"></td>
+                    <td><a href="{{ $el->getFirstMedia('team_image')->getUrl() }}" target="_blank"><i
                                 class="bi bi-box-arrow-up-right"></i></a></td>
                     <td>{!! $el->status !!}</td>
                     <td>

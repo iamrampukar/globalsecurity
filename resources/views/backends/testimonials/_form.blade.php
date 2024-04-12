@@ -31,11 +31,4 @@
     </div>
 </div>
 
-<div class="mb-3">
-    <label for="imageFile" class="form-label">Image File</label>
-    <input class="form-control form-control-sm" type="file" name="image_name" id="imageFile">
-    @error('image_name')
-    <div class="invalid">{{ $message }}</div>
-    @enderror
-</div>
 <button class="btn btn-primary btn-sm">Save</button>

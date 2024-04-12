@@ -7,6 +7,8 @@ use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\Client;
 use App\Models\Faq;
+use App\Models\Gallery;
+use App\Models\Testimonial;
 use App\Models\Team;
 use App\Models\NoticeWall;
 use Illuminate\Http\Request;
@@ -24,10 +26,12 @@ class HomeController extends Controller
     {
         $model = [];
         $model['banner'] = Banner::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(5)->get();
-        $model['teams'] = Team::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
+        $model['team'] = Team::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         $model['client'] = Client::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         $model['notice_wall'] = NoticeWall::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->first();
         $model['faq'] = Faq::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
+        $model['testimonial'] = Testimonial::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
+        $model['gallery'] = Gallery::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         return $model;
     }
 
@@ -44,12 +48,14 @@ class HomeController extends Controller
 
     public function gallery(Request $request)
     {
-        return view('homes.gallery');
+         $model = $this->_load();
+        return view('homes.gallery',compact('model'));
     }
 
     public function faq(Request $request)
     {
-        return view('homes.faq');
+        $model = $this->_load();
+        return view('homes.faq',compact('model'));
     }
 
     public function services(Request $request)

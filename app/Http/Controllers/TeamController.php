@@ -101,9 +101,9 @@ class TeamController extends Controller
             $status = true;
         }
         if ($request->hasFile('image_name')) {
-            $model->clearMediaCollection('team');
+            $model->clearMediaCollection('team_image');
             $model->addMedia($request->file('image_name'))
-                ->toMediaCollection('team');
+                ->toMediaCollection('team_image');
         }
         return $status;
     }

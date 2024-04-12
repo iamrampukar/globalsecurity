@@ -11,6 +11,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NoticeWallController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
     Route::post('/team/update/{id}', [TeamController::class, 'update'])->name('team.update');
     Route::get('/team/destroy/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+
+    Route::get('/gallery/list', [GalleryController::class, 'index'])->name('gallery.list');
+    Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
+    Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('gallery.show');
+    Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
+    Route::post('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::get('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 
     Route::get('/faq/list', [FaqController::class, 'index'])->name('faq.list');
     Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.create');

@@ -8,7 +8,8 @@
                     @if(!empty($model['client']))
                         @foreach($model['client'] as $el )
                             <div class="col-md-1">
-                                <img src="{{ $el->getFirstMedia('client_image')->getUrl('thumb') }}" class=" card-img-top client-img"
+                                <img src="{{ $el->getFirstMedia('client_image')->getUrl('thumb') }}"
+                                     class=" card-img-top client-img"
                                      alt="...">
                             </div>
                         @endforeach
@@ -57,34 +58,32 @@
             <h2 class="text-center">Clients Testimonial</h2>
             <div class="card">
                 <div class="card-body client-testimonial mt-3">
-                    <blockquote class="blockquote mb-0">
-                        <p class="text-center">Thank you for providing excellent security services for our company. Your
-                            team was always on time and performed their duties with the utmost professionalism. We
-                            appreciate your commitment to keeping our employees and assets</p>
-                        <footer class="blockquote-footer text-center">Nepal Investment Mega Bank (NIMB) Ltd</footer>
-                    </blockquote>
-
+                    @if(!empty($model['testimonial']))
+                        @foreach($model['testimonial'] as $el)
+                            <blockquote class="blockquote mb-0">
+                                <p class="text-center">{{ $el->message }}</p>
+                                <footer class="blockquote-footer text-center">{{ $el->full_name }}</footer>
+                            </blockquote>
+                        @endforeach
+                    @endif
+                    {{--
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">We appreciate the level of support and service provided by Global
                             Security Service.</p>
                         <footer class="blockquote-footer text-center">Union Life Insurance Company Ltd</footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">Global Security Service is providing us security service since the last
                             four years. We appreciate the level of support rendered.</p>
                         <footer class="blockquote-footer text-center">Hankook Sarang Korean Restaurant Pvt. Ltd.
                         </footer>
                     </blockquote>
-
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">Global Security Service is providing us well trained security guards and
                             services. We find their service to the best of our requirements and we are satisfied with
                             them.</p>
                         <footer class="blockquote-footer text-center">Valley Cold Store Pvt. Ltd.</footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">Global Security Services(GSS) has been providing security services to the
                             Rose Village Community located in Surya Binayak Municipality, Nepal since March 2020. Since
@@ -93,28 +92,24 @@
                         <footer class="blockquote-footer text-center">Rose Village Saving & Credit Co-operative Ltd.
                         </footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">M/S Global Security Service has been providing good service in
                             contractual terms. We look forward to receive similar service from this company in future
                             too.</p>
                         <footer class="blockquote-footer text-center">Brihat Developers and Builders Pvt Ltd</footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">Global Security has been providing good service in professional manner in
                             compliance with contractual terms. We look forward to receive similar service from this
                             company in future too.</p>
                         <footer class="blockquote-footer text-center">Texas International Secondary School</footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">The services provided by the company and performance of the security
                             guards is satisfactory. We appreciate the level of support provided by Global Security
                             Service.</p>
                         <footer class="blockquote-footer text-center">Shirneth Enterprises Pvt. Ltd.</footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">Global Security Service has been providing good service in professional
                             manner. We look forward to receive similar service from this company in future too.</p>
@@ -122,7 +117,6 @@
                             Ltd.
                         </footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">Global Security Service has been providing the security guard services in
                             Hulas Metal Craft Ltd under Glochha Organization, since the last four years. We appreciate
@@ -130,7 +124,6 @@
                         <footer class="blockquote-footer text-center">Hulas Metal Crafts Ltd
                         </footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">The services provided by the company and performance of the security
                             guards is satisfactory. We appreciate the level of support provided by Global Security
@@ -138,7 +131,6 @@
                         <footer class="blockquote-footer text-center">Catalyst Management Service Nepal Pvt Ltd (CMS)
                         </footer>
                     </blockquote>
-
                     <blockquote class="blockquote mb-0">
                         <p class="text-center">The services provided by the company and performance of the security
                             guards is satisfactory. We appreciate the level of support provided by Global Security
@@ -151,6 +143,7 @@
                             this company in future too. Thank you</p>
                         <footer class="blockquote-footer text-center">Shaurya Cement Industries Limited</footer>
                     </blockquote>
+                    --}}
                 </div>
             </div>
         </div>

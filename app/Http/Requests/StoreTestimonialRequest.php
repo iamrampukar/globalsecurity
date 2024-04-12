@@ -25,7 +25,7 @@ class StoreTestimonialRequest extends FormRequest
             'full_name' => 'required',
             'message' => 'required',
             'visible_status' => ['nullable'],
-            'image_name' => 'required',
+//            'image_name' => 'required',
         ];
     }
 }

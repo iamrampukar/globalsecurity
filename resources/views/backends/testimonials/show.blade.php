@@ -16,17 +16,6 @@
             </td>
         </tr>
         <tr>
-            <th valign="top">Image</th>
-            <td>
-                <img src="{{ $model->getFirstMedia('testimonial_image')->getUrl('thumb') }}" alt="">
-            </td>
-        </tr>
-        <tr>
-            <th>Url</th>
-            <td><a href="{{ $model->getFirstMedia('testimonial_image')->getUrl() }}" target="_blank"><i
-                        class="bi bi-box-arrow-up-right"></i></a></td>
-        </tr>
-        <tr>
             <th colspan="2">
                 <a href="{{ route('testimonial.list') }}" class="btn btn-primary btn-sm"><i
                         class="bi bi-arrow-left"></i>

@@ -25,8 +25,8 @@ class StoreTeamRequest extends FormRequest
             'full_name' => 'required',
             'email' => 'required',
             'contact' => 'required',
+            'designation' => 'required',
             'quote' => 'nullable',
-            'message' => 'nullable',
             'visible_status' => 'nullable',
             'image_name' => 'required'
         ];

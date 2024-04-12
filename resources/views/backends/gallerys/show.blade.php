@@ -1,22 +1,10 @@
 @extends('backends._layout')
 @section('content')
-    <h3>TEAM Show</h3>
+    <h3>GALLERY Show</h3>
     <table class="table table-sm table-bordered">
         <tr>
             <th>Full Name</th>
-            <td>{{ $model->full_name }}</td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td>{{ $model->email }}</td>
-        </tr>
-        <tr>
-            <th>Contact</th>
-            <td>{{ $model->contact }}</td>
-        </tr>
-        <tr>
-            <th>Quote</th>
-            <td>{{ $model->quote }}</td>
+            <td>{{ $model->title }}</td>
         </tr>
         <tr>
             <th>Message</th>
@@ -29,12 +17,12 @@
         <tr>
             <th valign="top">Image</th>
             <td>
-                <img src="{{ $model->getFirstMedia('team_image')->getUrl('thumb') }}" alt="" width="300px">
+                <img src="{{ $model->getFirstMedia('gallery_image')->getUrl('thumb') }}" alt="" width="300px">
             </td>
         </tr>
         <tr>
             <td>Url</td>
-            <td><a href="{{ $model->getFirstMedia('team_image')->getUrl() }}" target="_blank"><i
+            <td><a href="{{ $model->getFirstMedia('gallery_image')->getUrl() }}" target="_blank"><i
                         class="bi bi-box-arrow-up-right"></i></a></td>
         </tr>
         <tr>

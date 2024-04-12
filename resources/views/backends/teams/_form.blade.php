@@ -18,6 +18,15 @@
 </div>
 
 <div class="mb-3">
+    <label for="designation" class="form-label">Designation</label>
+    <input type="text" class="form-control" id="designation" name="designation" placeholder="Designation..."
+           value="{{ old('designation',@$model->designation) }}">
+    @error('designation')
+    <div class="invalid">{{ $message }}</div>
+    @enderror
+</div>
+
+<div class="mb-3">
     <label for="contact" class="form-label">Contact</label>
     <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact..."
            value="{{ old('contact',@$model->contact) }}">
@@ -31,15 +40,6 @@
     <textarea class="form-control" id="quote" name="quote" rows="3"
               placeholder="Message...">{{ old('quote',@$model->quote) }}</textarea>
     @error('quote')
-    <div class="invalid">{{ $message }}</div>
-    @enderror
-</div>
-
-<div class="mb-3">
-    <label for="message" class="form-label">Message</label>
-    <textarea class="form-control" id="message" name="message" rows="3"
-              placeholder="Message...">{{ old('message',@$model->message) }}</textarea>
-    @error('message')
     <div class="invalid">{{ $message }}</div>
     @enderror
 </div>

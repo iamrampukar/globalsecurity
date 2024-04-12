@@ -8,6 +8,24 @@
                     </h3>
                 </div>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
+                    @if(!empty($model['team']))
+                        @foreach($model['team'] as $el )
+                            <div class="col">
+                                <div class="card d-flex flex-column justify-content-center align-items-center">
+                                    <img src="{{ $el->getFirstMedia('team_image')->getUrl('actual') }}"
+                                         class="rounded-circle our-team"
+                                         alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">
+                                            <span class="small text-muted">{{ $el->designation }}</span><br/>
+                                            {{ $el->full_name }}</h5>
+                                        <p class="card-text">{{ $el->quote }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                   {{--
                     <div class="col">
                         <div class="card d-flex flex-column justify-content-center align-items-center">
                             <img src="{{ asset('images/out-team/pashupati.jpeg') }}" class="rounded-circle our-team"
@@ -28,11 +46,10 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="card d-flex flex-column justify-content-center align-items-center">
                             <img src="{{ asset('images/out-team/ana_bahadur.jpeg') }}" class=" rounded-circle our-team"
-                            alt="...">
+                                 alt="...">
                             <div class="card-body">
                                 <h5 class="card-title text-center">
                                     <span class="small text-muted">Managing Director (MD)</span><br/>
@@ -49,7 +66,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="card d-flex flex-column justify-content-center align-items-center">
                             <img src="{{ asset('images/out-team/bhuwan_singh.jpeg') }}" class="rounded-circle our-team"
@@ -69,7 +85,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="card d-flex flex-column justify-content-center align-items-center">
                             <img src="{{ asset('images/out-team/manoj_sapkota.jpeg') }}" class="rounded-circle our-team"
@@ -106,6 +121,7 @@
                             </div>
                         </div>
                     </div>
+                    --}}
                 </div>
             </div>
         </div>

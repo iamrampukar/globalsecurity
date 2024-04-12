@@ -10,13 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('email')->nullable();
-            $table->string('contact')->nullable();
-            $table->string('designation')->nullable();
-            $table->text('quote')->nullable();
+            $table->string('title');
+            $table->text('message')->nullable();
             $table->tinyInteger('visible_status')->default(1);
             $table->tinyInteger('delete_flag')->default(0);
             $table->timestamps();
@@ -28,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('galleries');
     }
 };
