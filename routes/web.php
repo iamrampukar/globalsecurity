@@ -9,6 +9,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NoticeWallController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +84,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/faq/update/{id}', [FaqController::class, 'update'])->name('faq.update');
     Route::get('/faq/destroy/{id}', [FaqController::class, 'destroy'])->name('faq.destroy');
     /* Close: Backend Developers Code */
+
+    /* Start:: Contact Route */
+    Route::get('/contact/list', [ContactController::class, 'index'])->name('contact.list');
+    Route::get('/contact/show/{id}', [ContactController::class, 'show'])->name('contact.show');
 
 //    CLI Artisan.
     Route::get('/artisan-storage-link', function () {

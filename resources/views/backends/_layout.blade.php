@@ -42,6 +42,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('notice_wall.list') }}">Notice</a>
+                    </li> <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contact.list') }}">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
