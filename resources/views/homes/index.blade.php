@@ -1,0 +1,9 @@
+@extends('layouts.main_app')
+@section('content')
+    @include('layouts.banner')
+    @include('layouts.our_service')
+    @include('layouts.ceo_message')
+    @include('layouts.our_choose')
+    @include('layouts.map')
+    @include('layouts.feedback')
+@endsection
