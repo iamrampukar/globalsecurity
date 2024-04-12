@@ -39,7 +39,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('client.list')">
-                            {{ __('Testimonial') }}
+                            {{ __('Client') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
-use App\Models\Blog;
+use App\Models\Faq;
 use App\Models\PageGroup;
 use App\Models\Team;
 use App\Models\Testimonial;
@@ -31,7 +31,7 @@ class HomeController extends Controller
         $model['teams'] = Team::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         $model['testimonial'] = Testimonial::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(3)->get();
         $model['video'] = Video::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->limit(2)->get();
-        $model['blog'] = Blog::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
+        $model['blog'] = Faq::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->get();
         $model['notice_wall'] = NoticeWall::where(['delete_flag' => 0, 'visible_status' => 1])->orderBy('id', 'DESC')->first();
         return $model;
     }
@@ -68,7 +68,7 @@ class HomeController extends Controller
 
     public function blogDetail(Request $request, $slug)
     {
-        $blogModel = Blog::where('slug', $slug)->first();
+        $blogModel = Faq::where('slug', $slug)->first();
         $model = $this->_load();
         return view('homes.blog_detail', compact('blogModel', 'model'));
     }

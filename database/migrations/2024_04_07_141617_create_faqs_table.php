@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->text('short_description')->nullable();
-            $table->text('full_description')->nullable();
+            $table->string('question');
+            $table->text('answer')->nullable();
             $table->tinyInteger('visible_status')->default(1);
             $table->tinyInteger('delete_flag')->default(0);
             $table->integer('media_id')->nullable();
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('faqs');
     }
 };

@@ -53,7 +53,7 @@
                         <a class="nav-link" href="{{ route('video.list') }}">Videos</a>
                     </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog.list') }}">Blog</a>
+                        <a class="nav-link" href="{{ route('faq.list') }}">FAQ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('notice_wall.list') }}">Notice</a>

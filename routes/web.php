@@ -11,7 +11,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\RequestInquiryController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\NoticeWallController;
 
@@ -119,13 +119,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/feedbacks/list', [FeedbackController::class, 'index'])->name('feedback.list');
     Route::get('/feedbacks/show/{id}', [FeedbackController::class, 'show'])->name('feedback.show');
 
-    Route::get('/blog/list', [BlogController::class, 'index'])->name('blog.list');
-    Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
-    Route::get('/blog/show/{id}', [BlogController::class, 'show'])->name('blog.show');
-    Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
-    Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
-    Route::post('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update');
-    Route::get('/blog/destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+    Route::get('/faq/list', [FaqController::class, 'index'])->name('faq.list');
+    Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.create');
+    Route::get('/faq/show/{id}', [FaqController::class, 'show'])->name('faq.show');
+    Route::post('/faq/store', [FaqController::class, 'store'])->name('faq.store');
+    Route::get('/faq/edit/{id}', [FaqController::class, 'edit'])->name('faq.edit');
+    Route::post('/faq/update/{id}', [FaqController::class, 'update'])->name('faq.update');
+    Route::get('/faq/destroy/{id}', [FaqController::class, 'destroy'])->name('faq.destroy');
     /* Close: Backend Developers Code */
 
 //    CLI Artisan.

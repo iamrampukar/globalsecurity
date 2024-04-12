@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
-use App\Http\Requests\StoreBlogRequest;
-use App\Http\Requests\UpdateBlogRequest;
+use App\Models\Faq;
+use App\Http\Requests\StoreFaqRequest;
+use App\Http\Requests\UpdateFaqRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
-class BlogController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $model = Blog::where(['delete_flag' => 0])->orderBy('id', 'DESC')->get();
-        return view('backends.blogs.list', compact('model'));
+        $model = Faq::where(['delete_flag' => 0])->orderBy('id', 'DESC')->get();
+        return view('backends.faqs.list', compact('model'));
     }
 
     /**
@@ -25,13 +25,13 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('backends.blogs.create');
+        return view('backends.faqs.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBlogRequest $request)
+    public function store(StoreFaqRequest $request)
     {
         $formData = $request->validated();
         DB::beginTransaction();
@@ -42,7 +42,7 @@ class BlogController extends Controller
             DB::rollBack();
             return redirect()->back() - with('error', 'Something error data');
         }
-        return redirect()->route('blog.list')->with('success', 'Save data successfully');
+        return redirect()->route('faq.list')->with('success', 'Save data successfully');
     }
 
 
@@ -51,8 +51,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $model = Blog::where(['delete_flag' => 0])->find($id);
-        return view('backends.blogs.show', compact('model'));
+        $model = Faq::where(['delete_flag' => 0])->find($id);
+        return view('backends.faqs.show', compact('model'));
     }
 
     /**
@@ -60,14 +60,14 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $model = Blog::where(['delete_flag' => 0])->find($id);
-        return view('backends.blogs.edit', compact('model'));
+        $model = Faq::where(['delete_flag' => 0])->find($id);
+        return view('backends.faqs.edit', compact('model'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBlogRequest $request, $id)
+    public function update(UpdateFaqRequest $request, $id)
     {
         $formData = $request->validated();
         DB::beginTransaction();
@@ -78,13 +78,13 @@ class BlogController extends Controller
             DB::rollBack();
             return redirect()->back() - with('error', 'Something error data');
         }
-        return redirect()->route('blog.list')->with('success', 'Save data successfully');
+        return redirect()->route('faq.list')->with('success', 'Save data successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $pageGroup)
+    public function destroy(Faq $pageGroup)
     {
         //
     }
@@ -95,19 +95,12 @@ class BlogController extends Controller
         $model = NULL;
         $status = false;
         if (!empty($id)) {
-            $model = Blog::where(['delete_flag' => 0])->find($id);
-            $formData['slug'] = Str::slug($formData['slug'], '-');
+            $model = Faq::where(['delete_flag' => 0])->find($id);
             $model->fill($formData)->save();
             $status = true;
         } else {
-            $formData['slug'] = Str::slug($formData['slug'], '-');
-            $model = Blog::create($formData);
+            $model = Faq::create($formData);
             $status = true;
-        }
-        if ($request->hasFile('image_name')) {
-            $model->clearMediaCollection('blog_image');
-            $model->addMedia($request->file('image_name'))
-                ->toMediaCollection('blog_image');
         }
         return $status;
     }
