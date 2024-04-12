@@ -21,7 +21,7 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        $model  = Contact::where(['delete_flag' => 0])->find($id);
+        $model  = Contact::find($id);
         return view('backends.contacts.show', compact('model'));
     }
 }

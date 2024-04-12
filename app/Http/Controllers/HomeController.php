@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContactRequest;
 use App\Models\Banner;
+use App\Models\Contact;
 use App\Models\Faq;
-use App\Models\PageGroup;
 use App\Models\Team;
-use App\Models\Testimonial;
-use App\Models\Feedback;
-use App\Models\Video;
 use App\Models\NoticeWall;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreFeedbackRequest;
 use Illuminate\Support\Facades\DB;
+use Mockery\Exception;
 
 class HomeController extends Controller
 {
@@ -64,9 +62,22 @@ class HomeController extends Controller
         return view('homes.our_client');
     }
 
-
     public function contactUs(Request $request)
     {
         return view('homes.contact_us');
+    }
+
+    public function send(StoreContactRequest $request)
+    {
+        $postData = $request->validated();
+        DB::beginTransaction();
+        try {
+            $model = Contact::create($postData);
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Save failed success.');
+        }
+        return redirect()->back()->with('success', 'Save data successfully');
     }
 }

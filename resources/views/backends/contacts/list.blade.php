@@ -2,9 +2,6 @@
 @section('content')
     <div class="d-flex justify-content-between">
         <h3>CONTACT List</h3>
-        <div class="button-block">
-            <a href="{{ route('client.create') }}" class="btn btn-primary btn-sm">Create</a>
-        </div>
     </div>
     <div class="col-md-12">
         <table class="table table-bordered table-hover table-sm">
@@ -14,7 +11,6 @@
                 <th>Full Name</th>
                 <th>Email</th>
                 <th>Subject</th>
-                <th>Message</th>
                 <th style="width: 150px">Action</th>
             </tr>
             </thead>

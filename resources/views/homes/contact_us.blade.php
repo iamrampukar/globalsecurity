@@ -29,30 +29,41 @@
                             <div class="card-body">
                                 <p class="text-muted">Got a technical issue? Want to send feedback about a beta feature?
                                     Need details about our Business plan? Let us know.</p>
-                                <form method="post" action="https://goodvibes.com.np/apply-send">
-                                    <input type="hidden" name="_token" value="Rj2gmAYNjOyvaSdZZHMxiOxzm3eCnR5JlroCIwpp"
-                                           autocomplete="off">
+                                <form method="post" action="{{ route('app.send') }}">
+                                    @csrf
                                     <div class="mb-3">
                                         <label for="yourName" class="form-label">Your Name</label>
-                                        <input type="text" class="form-control" name="full_name" id="yourName"
+                                        <input type="text" class="form-control" name="your_name" id="yourName"
                                                placeholder="Your Name">
+                                        @error('your_name')
+                                        <div class="invalid">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="userEmail" class="form-label">Email</label>
                                         <input type="email" class="form-control" name="email" id="userEmail"
                                                placeholder="Email...">
+                                        @error('email')
+                                        <div class="invalid">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="subject" class="form-label">Subject</label>
                                         <input type="text" class="form-control" name="subject" id="subject"
                                                placeholder="Subject...">
+                                        @error('subject')
+                                        <div class="invalid">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="message" class="form-label">Message</label>
                                         <textarea class="form-control" name="message" id="message"
                                                   placeholder="Message..."
                                                   rows="3"></textarea>
+                                        @error('message')
+                                        <div class="invalid">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <input type="submit" value="Send" class="btn btn-primary">
                                 </form>
