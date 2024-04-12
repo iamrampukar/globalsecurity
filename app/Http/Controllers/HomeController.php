@@ -18,9 +18,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-        $model = $this->_load();
-        return view('homes.index', compact('model'));
+        return view('homes.index');
     }
 
     private function _load()
@@ -38,96 +36,37 @@ class HomeController extends Controller
 
     public function aboutUs(Request $request)
     {
-        $model = $this->_load();
-        return view('homes.about_us', compact('model'));
+        return view('homes.about_us');
     }
 
-    public function services(Request $request)
+    public function ourTeam(Request $request)
     {
-        $model = $this->_load();
-        return view('homes.services', compact('model'));
+        return view('homes.our_team');
+    }
+
+    public function gallery(Request $request)
+    {
+        return view('homes.gallery');
     }
 
     public function faq(Request $request)
     {
-        $model = $this->_load();
-        return view('homes.faq', compact('model'));
+        return view('homes.faq');
     }
+
+    public function services(Request $request)
+    {
+        return view('homes.service');
+    }
+
+    public function outClient(Request $request)
+    {
+        return view('homes.our_client');
+    }
+
 
     public function contactUs(Request $request)
     {
-        $model = $this->_load();
-        return view('homes.contact_us', compact('model'));
-    }
-
-    public function blog(Request $request)
-    {
-        $model = $this->_load();
-        return view('homes.blog', compact('model'));
-    }
-
-    public function blogDetail(Request $request, $slug)
-    {
-        $blogModel = Faq::where('slug', $slug)->first();
-        $model = $this->_load();
-        return view('homes.blog_detail', compact('blogModel', 'model'));
-    }
-
-    public function country(Request $request)
-    {
-        $model = $this->_load();
-        return view('homes.country', compact('model'));
-    }
-
-    public function applyNow(Request $request)
-    {
-        $model = $this->_load();
-        return view('homes.apply_now', compact('model'));
-    }
-
-    public function successStory(Request $request)
-    {
-        $model = $this->_load();
-        return view('homes.teams', compact('model'));
-    }
-
-    public function visitorFeedback(Request $request)
-    {
-        $model = $this->_load();
-        return view('homes.visitor_feedback', compact('model'));
-    }
-
-    public function sendFeedback(StoreFeedbackRequest $request)
-    {
-        $formData = $request->validated();
-        DB::beginTransaction();
-        try {
-            $this->_storeUpdate($request, $formData);
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollBack();
-            return redirect()->back() - with('error', 'Something error data');
-        }
-        return redirect()->back()->with('success', 'Save data successfully');
-    }
-
-    private function _storeUpdate($request, $formData = [], $id = null): bool
-    {
-        $model = NULL;
-        $status = false;
-        if (!empty($id)) {
-            $model = Feedback::where(['delete_flag' => 0])->find($id);
-            $model->fill($formData)->save();
-            $status = true;
-        } else {
-            $model = Feedback::create($formData);
-            $status = true;
-        }
-        if ($request->hasFile('image_name')) {
-            $model->clearMediaCollection('feedback_image');
-            $model->addMedia($request->file('image_name'))
-                ->toMediaCollection('feedback_image');
-        }
-        return $status;
+        return view('homes.contact_us');
     }
 }

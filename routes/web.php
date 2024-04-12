@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
 // Backend Developer.
 use App\Http\Controllers\BannerController;
@@ -26,6 +25,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+require __DIR__ . '/frontend.php';
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -36,19 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-/* Start: Frontend Developers Code */
-Route::get('/', [HomeController::class, 'index'])->name('app.home');
-Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('app.about_us');
-Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('app.contact_us');
-Route::get('/country', [HomeController::class, 'country'])->name('app.country');
-Route::get('/services', [HomeController::class, 'services'])->name('app.services');
-Route::get('/blog', [HomeController::class, 'blog'])->name('app.blog');
-Route::get('/success-story', [HomeController::class, 'successStory'])->name('app.teams');
-Route::get('/apply-now', [HomeController::class, 'applyNow'])->name('app.apply_now');
-Route::get('/faq', [HomeController::class, 'faq'])->name('app.faq');
-Route::post('/apply-send', [RequestInquiryController::class, 'store'])->name('app.apply_send');
-Route::get('/blog/detail/{slug}', [HomeController::class, 'blogDetail'])->name('app.blog_slug');
-/* Close: Frontend Developers Code */
 
 Route::middleware('auth')->group(function () {
     /* Start: Backend Developers Code */

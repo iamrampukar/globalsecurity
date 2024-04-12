@@ -1,25 +1,24 @@
 @extends('layouts.main_app')
 @section('content')
-    <!-- Content Block-->
     <section class="mt-5">
-        <div class="page-header  bg-body-secondary">
-            <div class="container">
-                <div class="row mb-3">
-                    <h3 class="p-4">Contact Us</h3>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center"><span class="text-dark">Contact Us</span></h3>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-6">
-                    <p class="lh-base mt-3">Walk in to our office for free study abroad counselling, application
-                        submissions, visa assistance, pre-departure sessions and much more.</p>
+                    <h5 class="lh-base mt-3">Let's get in touch</h5>
                     <div class="card" style="width: 30rem;">
                         <div class="card-body">
                             <p class="card-text lh-lg">
-                                <i class="ri-phone-fill"></i> Phone : +977-01-5916120, 9869060120<br/>
-                                <i class="ri-time-line"></i> Timing : Sunday - Friday-8:00 am -6:30 pm<br/>
-                                <i class="ri-mail-line"></i> Email : info.goodvives@gmail.com
+                                <strong>Global Security Service Pvt. Ltd.</strong><br>
+                                <i class="ri-map-pin-line"></i> Address: Putalisadak, Kathmandu, Nepal<br>
+                                <i class="ri-phone-fill"></i> 01-5327614<br>
+                                <i class="ri-smartphone-line"></i> Mobile: 9841684330 | 9851293512<br>
+                                <i class="ri-mail-line"></i> Email : global2074@gmail.com
                             </p>
                         </div>
                     </div>
@@ -28,9 +27,35 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Interested in studying abroad ?</h5>
-                                <p class="text-muted">Fill in your details and we’ll call you back !</p>
-                                @include('homes._form')
+                                <p class="text-muted">Got a technical issue? Want to send feedback about a beta feature?
+                                    Need details about our Business plan? Let us know.</p>
+                                <form method="post" action="https://goodvibes.com.np/apply-send">
+                                    <input type="hidden" name="_token" value="Rj2gmAYNjOyvaSdZZHMxiOxzm3eCnR5JlroCIwpp"
+                                           autocomplete="off">
+                                    <div class="mb-3">
+                                        <label for="yourName" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" name="full_name" id="yourName"
+                                               placeholder="Your Name">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="userEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email" id="userEmail"
+                                               placeholder="Email...">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <input type="text" class="form-control" name="subject" id="subject"
+                                               placeholder="Subject...">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" name="message" id="message"
+                                                  placeholder="Message..."
+                                                  rows="3"></textarea>
+                                    </div>
+                                    <input type="submit" value="Send" class="btn btn-primary">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -38,5 +63,5 @@
             </div>
         </div>
     </section>
-    <!-- /Content Block-->
+    @include('layouts.map')
 @endsection
