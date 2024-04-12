@@ -29,7 +29,24 @@
                                 </div>
                             @endforeach
                         @endif
-                        {{-- <div class="accordion-item">
+                            {{--
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How
+                                    can I contact you for job?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">Yes, Please Contact Us 01-5327614 at Putalisadak, Kathmandu
+                                    for
+                                    further details.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
                              <h2 class="accordion-header" id="headingTwo">
                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                          data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
