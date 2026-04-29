@@ -15,9 +15,9 @@
                         <div class="card-body">
                             <p class="card-text lh-lg">
                                 <strong>Global Security Service Pvt. Ltd.</strong><br>
-                                <i class="ri-map-pin-line"></i> Address: Putalisadak, Kathmandu, Nepal<br>
-                                <i class="ri-phone-fill"></i> 01-5327614<br>
-                                <i class="ri-smartphone-line"></i> Mobile: 9841684330 | 9851293512<br>
+                                <i class="ri-map-pin-line"></i> Address: <!--Putalisadak, Kathmandu, Nepal--><br>
+                                <i class="ri-phone-fill"></i> <!--01-5327614--><br>
+                                <i class="ri-smartphone-line"></i> Mobile: <!--9841684330 | 9851293512--><br>
                                 <i class="ri-mail-line"></i> Email : global2074@gmail.com
                             </p>
                         </div>
