@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-12 d-flex justify-content-between align-items-center">
                 <ul class="list-unstyled d-inline-block mt-2">
-                    <li class="list-inline-item"><i class="ri-map-pin-line"></i>Putalisadak, Near Baggikhana</li>
-                    <li class="list-inline-item"><i class="ri-phone-line"></i>+977 01-5327614 Mob</li>
-                    <li class="list-inline-item"><i class="ri-smartphone-line"></i>+977 9841684330</li>
+                    <li class="list-inline-item"><i class="ri-map-pin-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li class="list-inline-item"><i class="ri-phone-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mob</li>
+                    <li class="list-inline-item"><i class="ri-smartphone-line"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                     <li class="list-inline-item"><i class="ri-mail-line"></i>global2074@gmail.com</li>
                 </ul>
                 <ul class="list-unstyled d-inline-block mt-2">
